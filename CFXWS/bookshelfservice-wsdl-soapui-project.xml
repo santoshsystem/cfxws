@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project activeEnvironment="Default" name="bookshelfservice?wsdl" soapui-version="4.5.2" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="bookShelfServiceSoapBinding" type="wsdl" bindingName="{http://ws.test/}bookShelfServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/CFXWS/bookshelfservice?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/CFXWS/bookshelfservice?wsdl"><con:part><con:url>http://localhost:8080/CFXWS/bookshelfservice?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="bookShelfService" targetNamespace="http://ws.test/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://ws.test/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xs:schema elementFormDefault="unqualified" targetNamespace="http://ws.test/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="bookVO" type="tns:bookVO"/>
+      <xs:element name="getBook" type="tns:getBook"/>
+      <xs:element name="getBookResponse" type="tns:getBookResponse"/>
+      <xs:element name="insertBook" type="tns:insertBook"/>
+      <xs:element name="insertBookResponse" type="tns:insertBookResponse"/>
+      <xs:element name="name" type="tns:name"/>
+      <xs:element name="nameResponse" type="tns:nameResponse"/>
+      <xs:complexType name="insertBook">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="tns:bookVO"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="bookVO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="author" type="xs:string"/>
+          <xs:element name="bookId" type="xs:long"/>
+          <xs:element minOccurs="0" name="bookName" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="insertBookResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="name">
+        <xs:sequence/>
+      </xs:complexType>
+      <xs:complexType name="nameResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getBook">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getBookResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:bookVO"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="insertBook">
+    <wsdl:part element="tns:insertBook" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="nameResponse">
+    <wsdl:part element="tns:nameResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="name">
+    <wsdl:part element="tns:name" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="insertBookResponse">
+    <wsdl:part element="tns:insertBookResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getBookResponse">
+    <wsdl:part element="tns:getBookResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getBook">
+    <wsdl:part element="tns:getBook" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="BookShelfService">
+    <wsdl:operation name="insertBook">
+      <wsdl:input message="tns:insertBook" name="insertBook"></wsdl:input>
+      <wsdl:output message="tns:insertBookResponse" name="insertBookResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="name">
+      <wsdl:input message="tns:name" name="name"></wsdl:input>
+      <wsdl:output message="tns:nameResponse" name="nameResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBook">
+      <wsdl:input message="tns:getBook" name="getBook"></wsdl:input>
+      <wsdl:output message="tns:getBookResponse" name="getBookResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="bookShelfServiceSoapBinding" type="tns:BookShelfService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="insertBook">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="insertBook">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="insertBookResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="name">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="name">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="nameResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBook">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getBook">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getBookResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="bookShelfService">
+    <wsdl:port binding="tns:bookShelfServiceSoapBinding" name="BookShelfServiceImplPort">
+      <soap:address location="http://localhost:8080/CFXWS/bookshelfservice"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/CFXWS/bookshelfservice</con:endpoint></con:endpoints><con:operation isOneWay="false" action="" name="getBook" bindingOperationName="getBook" type="Request-Response" outputName="getBookResponse" inputName="getBook" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/CFXWS/bookshelfservice</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ws="http://ws.test/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ws:getBook>
+         <!--Optional:-->
+         <arg0>AA</arg0>
+      </ws:getBook>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://ws.test/BookShelfService/getBook"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation isOneWay="false" action="" name="insertBook" bindingOperationName="insertBook" type="Request-Response" outputName="insertBookResponse" inputName="insertBook" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/CFXWS/bookshelfservice</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ws="http://ws.test/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ws:insertBook>
+         <!--Optional:-->
+         <arg0>
+            <!--Optional:-->
+            <author>A</author>
+            <bookId>1</bookId>
+            <!--Optional:-->
+            <bookName>AA</bookName>
+         </arg0>
+      </ws:insertBook>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://ws.test/BookShelfService/insertBook"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation isOneWay="false" action="" name="name" bindingOperationName="name" type="Request-Response" outputName="nameResponse" inputName="name" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/CFXWS/bookshelfservice</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ws="http://ws.test/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ws:name/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://ws.test/BookShelfService/name"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/></con:soapui-project>
